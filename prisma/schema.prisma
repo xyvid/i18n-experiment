@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.sqlite"
+}
+
+model Locale {
+  id           Int         @id @default(autoincrement())
+  code         String      @unique
+  dir          String      @default("ltr")
+  title        String
+  native_title String
+  LocalText    LocalText[]
+}
+
+model LocalText {
+  id       Int    @id @default(autoincrement())
+  locale   Locale @relation(fields: [localeId], references: [id])
+  slug     String
+  content  String
+  localeId Int
+}
+
+model LocalImage {
+  id      Int    @id @default(autoincrement())
+  locale  Int
+  slug    String
+  content String
+}
