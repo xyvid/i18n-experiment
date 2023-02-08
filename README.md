@@ -19,6 +19,10 @@ This approach also creates a more streamlined and tailored developer experience 
 
 The overarching purpose of this experiment is to help determine whether or not those value propositions outweigh the benefits of existing solutions.
 
+Probably the most obvious existing solution would be [svelte-i18n](https://github.com/kaisermann/svelte-i18n), which follows a pattern similar to leading react and vue libraries. This relies on flat JSON files, so we would have to either maintain them manually or create a tool to generate them from data and publish them to the UI environment. 
+
+Another interesting option would be using a headless CMS with i18n support, like [Strapi](https://strapi.io/blog/building-applications-for-an-international-audience-using-strapi-i18n-plugin). On the surface, it looks some extra technical debt and learning curve in addition to the tool itself. It does however provide a nice user interface for maintaining content, and supports proper l10n (including images, currency, etc).
+
 ## Usage
 ### Content management
 The content management tools can be accessed by clicking the __i18n__ button in the top right after launching the application. 
