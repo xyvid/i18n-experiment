@@ -6,6 +6,9 @@ Experiment with custom i18n content management in SvelteKit
 # install modules 
 npm i
 
+# generate local db instance
+npx prisma generate
+
 # launch application locally
 npm run dev
 ```
