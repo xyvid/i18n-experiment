@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { locale } from "$lib/data/appStore";
+    import { locale, event_date } from "$lib/data/appStore";
     import LocalText from "$lib/components/LocalText.svelte";
     import { LightSwitch } from '@skeletonlabs/skeleton';
 
@@ -15,7 +15,7 @@
         <LocalText slug="settings" />
         <a href="/" class="btn variant-filled-primary"><i class="fa fa-check"></i></a>
     </h1>    
-    <div class="card">
+    <div class="card p-8 space-y-3">
         <div>
             Dark mode
             <LightSwitch />
@@ -27,6 +27,11 @@
                 <option value="{l.code}">{l.title} / {l.native_title}</option>
                 {/each}
             </select>
+        </label>
+        <label for="event_time">
+            <span>Demo Event Date/time</span>
+            <!-- native date/time elements with correct formatting on value, all for free is wild man -->
+            <input type="datetime-local" bind:value={$event_date} id="event_time" />
         </label>
     </div>
 </div>

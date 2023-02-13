@@ -11,6 +11,8 @@ const initLocale: Locale = {
     dir: ""
 }
 
+
+// these stores will be populated from data on application init - currently via Prisma in the root +layout.server.ts
 export const localContent = writable(init);
 export const defaultContent = writable(init);
 export const activeLocale = writable(initLocale);
@@ -23,6 +25,9 @@ export const _ = (slug: string) => {
     let content = get(localContent).find(i => i.slug === slug);
     if (!content) {
         content = get(defaultContent).find(i => i.slug === slug);
+    }
+    if (!content) {
+        console.error('Missing text content in default (en-us) dictionary. Did you use the correct slug?', slug)
     }
 
     return content?.content;
@@ -40,7 +45,7 @@ export const getDefaultText = (slug: string) => {
     if (content) {
         return content.content;
     } else {
-        console.log('Missing text content in default (en-us) dictionary. Did you use the correct slug?', slug)
+        console.error('Missing text content in default (en-us) dictionary. Did you use the correct slug?', slug)
         return null;
     }
 }
