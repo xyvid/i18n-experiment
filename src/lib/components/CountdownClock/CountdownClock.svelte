@@ -4,7 +4,7 @@
     import NumberCard from './NumberCard.svelte'; 
   
     export let event_date;
-    
+
     interface Time {
       days: number;
       hours: number;
@@ -45,9 +45,9 @@
   {#if timeDifference > 0}  
     <h2>{_('your_event_will_begin_countdown')}</h2>    
     <NumberCard number={time.days} label={_('label_days')} />
-    <NumberCard number={time.hours} label={_('label_hours')} />
-    <NumberCard number={time.minutes} label={_('label_minutes')} />
-    <NumberCard number={time.seconds} label={_('label_seconds')} />
+    <NumberCard number={time.hours} label={_('label_hours')} autohide={time.days < 1} />
+    <NumberCard number={time.minutes} label={_('label_minutes')} autohide={time.hours < 1} />
+    <NumberCard number={time.seconds} label={_('label_seconds')} autohide={time.minutes < 1} />
   {:else}
   <h1 class="text-primary-900">{_('your_event_is_starting')}</h1>
   {/if}
