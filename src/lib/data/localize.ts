@@ -12,7 +12,7 @@ const initLocale: Locale = {
 }
 
 
-// these stores will be populated from data on application init - currently via Prisma in the root +layout.server.ts
+// these stores must be populated from data on application init - currently via Prisma in the root +layout.server.ts
 export const localContent = writable(init);
 export const defaultContent = writable(init);
 export const activeLocale = writable(initLocale);

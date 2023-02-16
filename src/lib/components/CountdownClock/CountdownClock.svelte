@@ -3,7 +3,7 @@
     import { _ } from '$lib/data/localize';
     import NumberCard from './NumberCard.svelte'; 
   
-    export let event_date;
+    export let event_date: string;
 
     interface Time {
       days: number;
@@ -43,7 +43,7 @@
   
   <div class="card p-12 space-y-12">
   {#if timeDifference > 0}  
-    <h2>{_('your_event_will_begin_countdown')}</h2>    
+    <h2>{_('your_event_will_begin_countdown')}</h2>      
     <NumberCard number={time.days} label={_('label_days')} />
     <NumberCard number={time.hours} label={_('label_hours')} autohide={time.days < 1} />
     <NumberCard number={time.minutes} label={_('label_minutes')} autohide={time.hours < 1} />
