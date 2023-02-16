@@ -7,7 +7,7 @@
 </script>
 
 {#if number > 0 || !autohide}
-<div transition:fade class="border-primary-700 variant-filled-secondary chip">
+<div class="border-primary-700 variant-filled-secondary chip">
     <div class="text-4xl">{number.toLocaleString()}</div>
     <div class="text-xl">{label}</div>
 </div>
